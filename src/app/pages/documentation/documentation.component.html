@@ -1,0 +1,244 @@
+<div class="documentation-page__container">
+    <div class="documentation-page__fold">
+        <h1 id="mat-list-touch">
+            mat-list-touch
+        </h1>
+        <p>
+            Template-based (Customizable) Material List with touch interaction for Angular Projects.
+        </p>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="why-mat-list-touch">
+            Why mat-list-touch?
+        </h2>
+        <p>
+            Found yourself having to recreate swipe interaction on angular material list components?<br />
+            This module makes it quite easy to create such a list by importing it and defining the <code>mat-list-touch</code> component.
+            This module provides <strong>Four</strong> types of the listviews, so no need to write code for the listview again and again. 
+            With the help of this module, you can easily integrate list view having <strong>Swipe to delete feature</strong>.
+            This module should work with all kind of screens width.
+        </p>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="demo">Demo</h2>
+        <p>
+            Try out the demo by cloning the project, installing with <code>npm install</code> and run it with <code>ng serve</code>
+            <em>Previous demo</em><br />Check the v1.0 Material Swipe to delete list in action, <a href="http://plugins.codershood.info/#/plugins/ngstd-plugin">click here</a>.
+            <br />(Not alike v2.0)
+        </p>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="installation">Installation</h2>
+        <p>
+            You can use either the npm or yarn command-line tool to install packages. Use whichever is appropriate for your project in the examples below.
+        </p>
+        <div class="documentation-page__smallerfold">
+            <h4 id="npm">NPM</h4>
+            <pre>npm install --save mat-list-touch</pre>
+            <h4 id="yarn">YARN</h4>
+            <pre>yarn add --save mat-list-touch</pre>
+        </div>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="usage">Usage</h2>
+        <p>Follow below steps to add multi level list in your project</p>
+
+        <div class="documentation-page__smallerfold">
+            <h4 id="import-ngswipetodeletemodule">1. Import NgSwipeToDeleteModule</h4>
+            <p>You need to import the <code>MatListTouchModule</code> in the module of your app, where you want to use it.</p>
+
+            <pre class="typescript">import {{ '{' }}BrowserModule, HAMMER_GESTURE_CONFIG} from &#39;@angular/platform-browser&#39;;
+import {{ '{' }}NgModule} from &#39;@angular/core&#39;;
+import {{ '{' }}AppComponent} from &#39;./app.component&#39;;
+import {{ '{' }}MatListTouchModule} from &#39;src/app/module/mat-list-touch/mat-list-touch.module&#39;;
+import {{ '{' }}BrowserAnimationsModule} from &#39;@angular/platform-browser/animations&#39;;
+import {{ '{' }}MatDividerModule} from &#39;@angular/material/divider&#39;;
+import {{ '{' }}MatIconModule} from &#39;@angular/material/icon&#39;;
+import {{ '{' }}GestureConfig} from &#39;src/app/module/mat-list-touch/config/gesture-config&#39;;
+import {{ '{' }}FlexLayoutModule} from &#39;@angular/flex-layout&#39;;
+
+@NgModule({{ '{' }}
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        MatListTouchModule,
+        BrowserAnimationsModule,
+        MatDividerModule, // Advised as often handy in mat-list scenario&#39;s
+        MatIconModule, // Advised as often handy in mat-list scenario&#39;s
+        FlexLayoutModule
+    ],
+    providers: [
+        // To override any specific touch behaviors
+        {{ '{' }}provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
+    ],
+    bootstrap: [AppComponent]
+})
+export class AppModule {{ '{' }}
+}
+            </pre>
+        </div>
+
+        <div class="documentation-page__smallerfold">
+            <h4 id="use-mat-list-touch-in-your-html">
+                2. Use <code>&lt;mat-list-touch&gt;</code> in your HTML
+            </h4>
+            <p>In your HTML: Use the <code>&lt;mat-list-touch&gt;</code>, wherever you like in your project.</p>
+            <pre class="sourceCode html">
+&lt;mat-list-touch 
+    (swipeLeftAction)=&quot;listItemSwipeLeft($event)&quot;
+    (swipeRightAction)=&quot;listItemSwipeRight($event)&quot;
+    //MatTableDatasource approach
+    [dataSource]=&quot;listData.connect().value&quot;
+    //Array approach
+    [dataSource]=&quot;listData&quot;
+    [icon]=&quot;true&quot;&gt;
+&lt;/mat-list-touch&gt;
+            </pre>
+        </div>
+        <div class="documentation-page__smallerfold">
+            <h4 id="structure-of-array-to-display-the-list">3. Structure of array to display the list</h4>
+            <p>Structure your data any way you like, although using MatTableDataSource is often really nice (not required!):</p>
+            <pre class="typescript">
+listData = new MatTableDataSource&lt;ListItem&gt;(
+    [
+        {{ '{' }}
+            separator: true,
+            name: &#39;Iron Man&#39;,
+            icon: &#39;pan_tool&#39;,
+            start: Date.now(),
+            end: Date.now(),
+            description: `Iron Man is a fictional superhero. He was the first, and will probably be the last.`,
+        }
+    ]
+);
+            </pre>
+        </div>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="api">API</h2>
+        <div class="documentation-page__smallerfold">
+            <h3 id="data-input">Data (input)</h3>
+            <ul>
+                <li>
+                    <p>
+                        <code>dataSource (input array)</code> input data used to construct the list (form it to your own wishes)
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="documentation-page__smallerfold">
+            <h3>Defining your list</h3>
+            <ul>
+                <li>
+                    Define parent element <code>mat-list-touch</code>
+                </li>
+                <li>
+                    <p>Define child <code>identityTemplate</code> to identify the row (icon, date, avatar)</p>
+                    <pre class="angular2html">
+&lt;ng-template #identityTemplate let-item&gt; 
+    &lt;img src=&quot;{{ '{' }}{{ '{' }}item.avatar}}&quot; /&gt; 
+&lt;/ng-template&gt;
+                    </pre>
+                </li>
+                <li>
+                    <p>Define child <code>contentTemplate</code> to form the content of the row (text, description) according to your own datasource</p>
+                    <pre class="angular2html">
+&lt;ng-template #contentTemplate let-item&gt;
+    &lt;mat-icon&gt;{{ '{' }}{{ '{' }}item.icon}}&lt;/mat-icon&gt;
+    &lt;p&gt;{{ '{' }}{{ '{' }}item.description}}&lt;/p&gt;
+&lt;/ng-template&gt;
+                    </pre>
+                </li>
+                <li>
+                    <p>Define (OPTIONAL) child <code>separatorTemplate</code> to separate the row or to group rows at hand from previous rows. Again, form it with your own content and styling.</p>
+                    <pre class="angular2html">
+&lt;ng-template #separatorTemplate let-item&gt;
+    &lt;p&gt;Hero collective -- {{ '{' }}{{ '{' }}item.fancyCollectionTitle}}&lt;/p&gt;
+&lt;/ng-template&gt;
+                    </pre>
+                </li>
+            </ul>
+        </div>
+        <div class="documentation-page__smallerfold">
+            <h3>Callbacks (output)</h3>
+            <ul>
+                <li>
+                    <code>swipeLeftAction(touchAction: TouchActionEvent)</code> callback when swipe-left threshold has been exceeded (index:number, data: any)<br />
+                </li>
+                <li>
+                    <code>swipeRightAction(touchAction: TouchActionEvent)</code> callback when swipe-right threshold has been exceeded (index:number, data: any)<br />
+                </li>
+                <li>
+                    <p><code>tapAction(touchAction: TouchActionEvent)</code> callback when click or tap has been executed (index:number, data: any )</p>
+                </li>
+            </ul>
+        </div>
+        <div class="documentation-page__smallerfold">
+            <h3>Configuration (input)</h3>
+            <ul>
+                <li>
+                    <code>swipeThreshold: number = 100</code> (default 100) amount of pixels of deadzone before swipe is accepted (after mouse/finger has been released)<br />
+                </li>
+                <li>
+                    <code>swipeLimit: number = 300</code> (default 300) amount of pixels before when the list item is stopped from sliding further<br />
+                </li>
+                <li>
+                    <code>defaultSwipeColor: string = 'gray'</code> (default 'gray') default color when threshold not reached<br />
+                </li>
+                <li>
+                    <code>leftColor: string = 'green'</code> (default 'green') define background color when threshold reached and swiping to the RIGHT (revealing the LEFT)<br />
+                </li>
+                <li>
+                    <code>rightColor: string = 'red'</code> (default 'red') define background color when threshold reached and swiping to the LEFT (revealing the RIGHT)<br />
+                </li>
+                <li>
+                    <code>rightIcon: string = 'check'</code> (default 'check') background mat-icon when this side is opened (LEF)<br />
+                </li>
+                <li>
+                    <code>rightIcon: string = 'not_interested'</code> (default 'not_interested') background mat-icon when this side is opened (RIGHT)<br />
+                </li>
+                <li>
+                    <p><code>silenceWarnings: boolean = false</code> (default: false) silence any warnings thrown</p>
+                </li>
+            </ul>
+        </div>
+        <div class="documentation-page__smallerfold">
+            <h3 id="configuration-callback">Configuration (callback)</h3>
+            <ul>
+                <li>
+                    <code>separatorEval(index: number, value: any)</code> will fire to check whether a row will enable the child template <code>separatorTemplate</code><br />
+                </li>
+                <li>
+                    <code>leftBorderEval(index: number, value: any)</code> will fire to let you evaluate the color of the item's LEFT border, if any.<br />
+                </li>
+                <li>
+                    <code>rightBorderEval(index: number, value: any)</code> will fire to let you evaluate the color of the item's RIGHT border, if any.<br />
+                </li>
+                <li>
+                    <code>disableActionsEval(index: number, value: any)</code> similarly lets you lock the row, if you want.
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="dependencies">Dependencies</h2>
+        <ul>
+            <li><a href="https://material.io/tools/icons/?style=baseline">Material Icons</a><br /></li>
+            <li><a href="https://material.angular.io">Angular Material</a><br /></li>
+            <li><a href="https://hammerjs.github.io/">HammerJs</a><br /></li>
+            <li><p><a href="https://github.com/angular/flex-layout">Angular FlexLayout</a></p>
+        </ul>
+    </div>
+    <div class="documentation-page__fold">
+        <h2>Contribution</h2>
+
+        <p>I welcome you to fork and add more features into it. If you have any bugs or feature request, please create an issue at <a href="https://github.com/ShankyTiwari/ng-swipe-to-delete/issues">github repository</a>.</p>
+    </div>
+    <div class="documentation-page__fold">
+        <h2 id="license">License</h2>
+        <p>MIT</p>
+    </div>
+</div>
+

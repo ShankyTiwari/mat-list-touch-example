@@ -1,0 +1,25 @@
+<div class="app-page__container">
+    <div class="app-page__wrapper">
+        <div class="app-page__header">
+            <app-header></app-header>
+        </div>
+        <div class="app-page__content">
+            <nav mat-tab-nav-bar mat-align-tabs="center"> 
+                <a mat-tab-link
+                    *ngFor="let link of navLinks"
+                    [routerLink]="link.link"
+                    routerLinkActive 
+                    #rla="routerLinkActive"
+                    [active]="rla.isActive">
+                    {{link.label}}
+                </a>
+            </nav>
+            <div class="app-router-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div class="app-page__footer">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>

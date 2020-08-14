@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/styles/theme.scss';
+
+*{
+    padding: 0px;
+    margin: 0px;
+    color: #ffffff;
+}
+
+html,
+body {
+    font-family: Helvetica, Arial, sans-serif; 
+    font-display: swap;
+    max-width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+}

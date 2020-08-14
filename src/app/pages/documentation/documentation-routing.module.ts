@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { DocumentationComponent } from './documentation.component';
+
 const routes: Routes = [{
   path: '',
-  loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
+  component: DocumentationComponent,
 }, {
-  path: '',
+  path: '**',
   redirectTo: '/',
   pathMatch: 'full'
 }];
 
+
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class DocumentationRoutingModule { }

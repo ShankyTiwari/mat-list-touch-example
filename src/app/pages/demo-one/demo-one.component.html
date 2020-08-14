@@ -1,0 +1,6 @@
+<mat-list-touch 
+    (swipeLeftAction)="listItemSwipeLeft($event)"
+    (swipeRightAction)="listItemSwipeRight($event)"
+    [dataSource]="listData.connect().value"
+>
+</mat-list-touch>
