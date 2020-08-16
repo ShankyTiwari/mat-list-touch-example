@@ -26,6 +26,10 @@ const routes: Routes = [{
   },{
     path: 'demo-six',
     loadChildren: () => import('./demo-six/demo-six.module').then(m => m.DemoSixModule)
+  }, {
+    path: '',
+    redirectTo: '/documentation',
+    pathMatch: 'full'
   }]
 }];
 

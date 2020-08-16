@@ -56,7 +56,6 @@ export class SingleListDemoComponent implements OnInit {
   ]);
 
   ngOnInit(): void {
-    console.log(this.listData)
   }
 
   listItemSwipeRight($event) {
@@ -67,8 +66,8 @@ export class SingleListDemoComponent implements OnInit {
     console.log($event)
   }
 
-  public evaluateSeparatorRequired(index: number, data: ListItem[]): boolean {
-    return !!data[index].separator;
+  public evaluateSeparatorRequired(data: ListItem[], index: number): boolean {
+    return !!(data[index]?.separator);
   }
 
 }

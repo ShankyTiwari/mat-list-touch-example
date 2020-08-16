@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "mat-list-touch-example"
+    }
+  },
+  "defaultProject": "mat-list-touch-example",
+  "cli": {
+    "analytics": "1e537d05-83d0-40d3-9163-391aef17b0c5"
+  }
 }

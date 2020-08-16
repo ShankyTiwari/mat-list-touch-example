@@ -8,10 +8,6 @@ const routes: Routes = [{
   path: 'raw-demo',
   loadChildren: () => import('./pages/raw-demo/raw-demo.module').then(m => m.RawDemoModule)
 }, {
-  path: '',
-  redirectTo: '/',
-  pathMatch: 'full'
-}, {
   path: '**',
   redirectTo: '/documentation',
   pathMatch: 'full'
