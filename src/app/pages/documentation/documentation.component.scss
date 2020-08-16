@@ -10,7 +10,7 @@
         overflow: auto;
         font-size: 12px;
         line-height: 1.45;
-        background-color: rgb(255 255 255 / 47%);
+        background-color: rgba(255, 255, 255, 0.47);
         border-radius: 6px;
         margin-bottom: 20px;
         color: #000;
@@ -19,7 +19,7 @@
     }
 
     code {
-        background: rgb(255 255 255 / 68%);
+        background: rgba(255, 255, 255, 0.68);
         padding: 1px 4px 1px 4px;
         color: #000;
         border-radius: 5px;
@@ -31,7 +31,7 @@
     .documentation-page__fold {
         margin-bottom: 30px;
         padding-bottom: 30px;
-        border-bottom: solid 3px #ffffff2e;
+        border-bottom: solid 3px rgba(255, 255, 255, 0.18);
         a {
             color: #fff;
         }
