@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FourNotFourComponent } from './four-not-four.component';
+import { MultilineDemoComponent } from './multiline-demo.component';
 
-describe('FourNotFourComponent', () => {
-  let component: FourNotFourComponent;
-  let fixture: ComponentFixture<FourNotFourComponent>;
+describe('MultilineDemoComponent', () => {
+  let component: MultilineDemoComponent;
+  let fixture: ComponentFixture<MultilineDemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FourNotFourComponent ]
+      declarations: [ MultilineDemoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FourNotFourComponent);
+    fixture = TestBed.createComponent(MultilineDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

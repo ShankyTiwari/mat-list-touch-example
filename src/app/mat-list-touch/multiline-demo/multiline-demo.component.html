@@ -1,0 +1,23 @@
+<mat-list-touch 
+    (swipeLeftAction)="listItemSwipeLeft($event)"
+    (swipeRightAction)="listItemSwipeRight($event)"
+    [dataSource]="listData.connect().value"
+    [separatorEval]="evaluateSeparatorRequired">
+
+    <ng-template #contentTemplate let-item>
+        <div class="list-icon">
+            <img draggable="false" class="mat-list-avatar" src="{{item.img}}">
+        </div>
+        <div class="mat-list-text list-item-details" fxLayout="column" fxLayoutAlign="center begin">
+            <small class="text-ellipsis">
+                <strong>{{item.name }}</strong>
+            </small>
+            <small class="text-ellipsis" fxHide.lt-md>
+                {{item.description}}
+            </small>
+        </div>
+        <mat-icon *ngIf="item.locked" class="icon-tile" ngClass.gt-sm="icon-tile-big">
+            lock
+        </mat-icon>
+    </ng-template>
+</mat-list-touch>

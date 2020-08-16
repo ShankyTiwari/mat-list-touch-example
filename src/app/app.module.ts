@@ -1,5 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import {HAMMER_GESTURE_CONFIG, HammerModule} from '@angular/platform-browser';
+import { GestureConfig } from 'mat-list-touch';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,10 +11,14 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HammerModule
   ],
-  providers: [],
+  providers: [
+    // To override any specific touch behaviors
+      {provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

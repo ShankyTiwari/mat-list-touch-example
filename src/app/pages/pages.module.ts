@@ -5,11 +5,9 @@ import { ComponentModule } from './../component/component.module';
 import { MaterialModule } from '../modules/material.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import { FourNotFourComponent } from './four-not-four/four-not-four.component';
-
 
 @NgModule({
-  declarations: [PagesComponent, FourNotFourComponent],
+  declarations: [PagesComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

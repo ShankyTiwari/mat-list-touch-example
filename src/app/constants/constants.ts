@@ -3,23 +3,24 @@ export const CONSTANTS = {
         {
             label: 'Documentation',
             link: '/documentation',
-            index: 0
         }, {
-            label: 'Demo One',
+            label: 'Mobile Demo',
             link: '/demo-one',
-            index: 1
         }, {
-            label: 'Demo Two',
+            label: 'Tablet Demo',
             link: '/demo-two',
-            index: 2
         }, {
-            label: 'Demo Three',
+            label: 'Desktop Demo',
             link: '/demo-three',
-            index: 3
         }, {
-            label: 'Demo Four',
+            label: 'Basic List',
             link: '/demo-four',
-            index: 4
+        }, {
+            label: 'Multiline List',
+            link: '/demo-five',
+        }, {
+            label: 'Advance List',
+            link: '/demo-six',
         },
     ]
 };

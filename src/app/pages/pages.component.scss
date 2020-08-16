@@ -1,8 +1,9 @@
 .app-page__container {
-    background: rgb(255,111,111);
-    background: linear-gradient(135deg, rgba(255,111,111,1) 0%, rgba(240,46,46,1) 100%);
+    background: #FF9398;
+    background: linear-gradient(135deg, #FF9398 0%, #ff6f6f 100%);
     width: 100%;
     color: #fff;
+    min-height: 100%;
 
     .app-page__wrapper {
         margin-right: auto;
@@ -20,6 +21,7 @@
         .app-page__content {
             width: 90%;
             margin: auto;
+            margin-bottom: 50px;
 
             .app-router-content {
                 margin-top: 30px;

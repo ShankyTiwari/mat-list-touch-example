@@ -1,0 +1,41 @@
+.loading-bgcolor {
+    background-color: gray;
+}
+  
+  // Our special mat-list
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+
+.list-icon {
+    margin-right: 16px;
+}
+
+.locked-mat-row {
+    background-color: #6c757d;
+}
+.unlocked-mat-row {
+    background-color: #fff;
+}
+
+.icon-tile {
+    padding-right: 16px;
+}
+.icon-tile-big {
+    padding-right: 24px;
+}
+
+.locked-mat-row {
+    background-color: #6c757d;
+}
+.unlocked-mat-row {
+    background-color: #fff;
+}
+
+.application_blue {
+    color: #03A9F4;
+}

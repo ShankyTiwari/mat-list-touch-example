@@ -20,10 +20,12 @@ const routes: Routes = [{
   }, {
     path: 'demo-four',
     loadChildren: () => import('./demo-four/demo-four.module').then(m => m.DemoFourModule)
-  }, {
-    path: '',
-    redirectTo: '/demo-one',
-    pathMatch: 'full'
+  },{
+    path: 'demo-five',
+    loadChildren: () => import('./demo-five/demo-five.module').then(m => m.DemoFiveModule)
+  },{
+    path: 'demo-six',
+    loadChildren: () => import('./demo-six/demo-six.module').then(m => m.DemoSixModule)
   }]
 }];
 
