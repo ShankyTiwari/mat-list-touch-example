@@ -70,7 +70,10 @@ export class DefaultDemoComponent implements OnInit {
   }
 
   public evaluateSeparatorRequired(data: ListItem[], index: number): boolean {
-    return !!(data[index]?.separator);
+    if(data[index]) {
+      return !!(data[index].separator);
+    }
+    return false;
   }
 
 }
